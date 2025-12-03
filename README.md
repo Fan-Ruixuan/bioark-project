@@ -2,8 +2,7 @@
 
 ##  Live Demo
 **Experience the fully functional portal here:**
-**[👉 Click to Open Live Deployment](https://your-vercel-link.vercel.app)** 
-*(请在部署后替换此链接)*
+**[👉 Click to Open Live Deployment](https://bioark-project.vercel.app)** 
 
 **Key Feature to Test Immediately:**
 1. **User Mode**: 
@@ -83,7 +82,7 @@ This project's value lies not just in the final UI, but in navigating and solvin
 ## Getting Started Locally
 1.  **Clone and Install**
     ```bash
-    git clone https://github.com/your-username/bioark-project.git
+    git clone https://github.com/Fan-Ruixuan/bioark-project.git
     cd bioark-project
     npm install
     ```
