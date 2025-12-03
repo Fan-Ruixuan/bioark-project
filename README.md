@@ -95,7 +95,7 @@ This project's value lies not just in the final UI, but in navigating and solvin
 ## 📁 Project Structure
 
 bioark-project/
-├── app/ # Next.js 14 App Router (核心应用层)
+├── app/ # Next.js 14 App Router (核心应用层)gi
 │ ├── page.tsx # 主页面，包含所有状态管理、双模式逻辑与布局
 │ ├── layout.tsx # 根布局组件
 │ └── globals.css # 全局样式与 Tailwind 指令
