@@ -138,18 +138,19 @@ This project's value lies not just in the final UI, but in navigating and solvin
 
 
 
-## 📁 Project Structure
+## 📁 Project Structure / 项目结构
 
-bioark-project/
-├── app/                        # Next.js应用核心（页面与路由）
-│   ├── page.tsx               # 首页 - 实现动态筛选的关键文件
-│   ├── layout.tsx
-│   └── globals.css
-├── components/                # 可复用UI组件
-│   └── ProductCarousel.tsx    # 产品轮播组件
-├── lib/                       # 【核心修改】业务逻辑与数据层
-│   ├── types.ts              # 类型定义 - 扩展了Product/Service接口
-│   └── data.ts               # 模拟数据 - 设置了首页显示开关
-├── public/                    # 静态资源（图片、字体等）
-├── next.config.ts            # Next.js配置文件
-└── package.json              # 项目依赖与脚本
+**bioark-project/**
+- **`app/`** – Next.js应用核心（页面与路由）
+  - `page.tsx` – **首页 - 实现动态筛选的关键文件**
+  - `layout.tsx`
+  - `globals.css`
+- **`components/`** – 可复用UI组件
+  - `ProductCarousel.tsx` – 产品轮播组件
+- **`lib/`** – **【核心修改】业务逻辑与数据层**
+  - `types.ts` – **类型定义 - 扩展了Product/Service接口**
+  - `data.ts` – **模拟数据 - 设置了首页显示开关**
+- **`public/`** – 静态资源（图片、字体等）
+- `next.config.ts` – Next.js配置文件
+- `package.json` – 项目依赖与脚本
+- `README.md` – 本文档
