@@ -1,6 +1,6 @@
-# Genetic Innovation - Product Management Portal
+# Genetic Innovation - Product Management Portal / 产品管理门户
 
-## Project Overview
+## Project Overview / 项目概述
     This project is a complete rebuild and enhancement of the product showcase homepage for Genetic Innovation (branded as "Innovative seed on board"). 
     
     Developed as a technical assessment within a tight timeline, it successfully evolved from a static layout into a fully dynamic, self-manageable product portal.
@@ -9,28 +9,29 @@
     
     This allows non-technical administrators to control the website's content directly from the frontend, perfectly aligning with real-world business needs.
 
-## Getting Started Locally
-1.  **Clone and Install**
+## Getting Started Locally / 本地运行
+1.  **Clone and Install / 克隆并安装**
     ```bash
     git clone https://github.com/Fan-Ruixuan/bioark-project.git
     cd bioark-project
     npm install
     ```
-2.  **Run the Development Server**
+2.  **Run the Development Server / 启动开发服务器**
     ```bash
     npm run dev
     ```
 3.  Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-**Key Feature to Test Immediately:**
-1. **User Mode**: 
+**Key Feature to Test Immediately / 核心功能体验:**
+1. **User Mode / 用户模式**: 
     Browse products as a normal visitor.
-2. **Admin Mode**: 
-    Click the **"Switch to Admin"** button on the top-right. Instantly, toggle switches appear on product and service cards, allowing you to control their visibility on the homepage and in specific sections in real-time.
+2. **Admin Mode / 管理员模式**: 
+    - Click the **"Switch to Admin"** button on the top-right. 
+    - toggle switches appear on product and service cards.
+    - control visibility in real-time.
 
-## All Requirements Met & Exceeded
+## Requirements & Optimization / 需求 & 优化
 
-| Requirement | Implementation & Highlights |
 - **1. Optimized Featured Products Display** 
 Implemented an **interactive carousel with thumbnail navigation** instead of a basic grid. It features smooth transitions, integrated admin controls, and solves the browsing efficiency issue for large product catalogs. |
 - **2. Scalable Display for Numerous Products** 
@@ -42,44 +43,45 @@ Service visibility on the homepage is fully controllable via toggle switches, ap
 - **5. Grayed-out Reagents Section**  
 A dedicated **"Reagents & Chemicals"** area is displayed in a disabled, grayed-out state as specified, with a clear "Coming Soon" indicator. 
 
-##  Live Demo
+##  Live Demo / 在线演示
 **Experience the fully functional portal here:**
 **[👉 Click to Open Live Deployment](https://bioark-project.vercel.app)** 
 
-> **重要访问说明**
-> 本项目已通过 Vercel 平台自动部署。由于该平台的国际服务节点配置，**从中国内地网络直接访问生成的预览网址，可能会遇到加载缓慢或连接超时的情况**。这并非应用本身的功能问题，而是由跨地域网络延迟所致。
+> **访问说明**
+> 本项目已通过 Vercel 平台自动部署。由跨地域网络延迟，从中国内地网络直接访问生成的预览网址，可能会产生连接超时的情况。
 
-**为确保您能顺畅地审阅项目功能，我准备了以下两种方式：**
+**可通过以下方法顺利查看项目：**
 
-1.  **本地运行** 
+1.  **Local Development / 本地运行** 
     - 按照上方的 [Getting Started Locally](#-getting-started-locally) 步骤，在本地开发环境中正常启动项目。
 
-2.  **观看功能演示视频**
-    - 我已录制了完整的功能演示与代码讲解视频，您可以通过此链接直接观看：
+2.  **Complete feature walkthrough & code explanation: Demo Video / 观看功能演示视频**
     **通过网盘分享的文件：网页优化演示.mp4**
     **链接: https://pan.baidu.com/s/13EghgZBDfW2odJftVerLhA?pwd=5idp 提取码: 5idp（无需提取码直接进入即可）**
 
-*感谢您的理解与耐心！建议通过本地运行或观看视频完成审阅*
+*麻烦您啦~建议通过本地运行或观看视频了解项目*
 
 
 
-## Tech Stack
-- **Framework**: Next.js 14 (App Router) with TypeScript
+## Tech Stack / 技术栈
+- **Framework**: Next.js 14  + TypeScript
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React
 - **State Management**: React Hooks (useState, useEffect)
 - **Persistence**: Browser LocalStorage
 - **Deployment**: Vercel
 
-## Architecture Overview
-This project employs a **client-side state-driven, dual-mode architecture** to fulfill the requirement for a dynamic, self-manageable portal. The design revolves around two core concepts:
+## Architecture / 架构设计
+ **client-side state-driven, dual-mode architecture** 
 
-1.  **Centralized State Management**: All product and service visibility states are managed at the application's root (`app/page.tsx`) using React hooks. This single source of truth is synchronized with the browser's `localStorage` for persistence and is propagated down to all UI components (like the `ProductCarousel` or grid cards).
-2.  **Presentation-Abstraction Layer**: The UI cleanly separates the **Presentation Layer** (dumb, reusable components like `ProductCard`) from the **Abstraction Layer** (smart, stateful page logic). This allows the admin control logic to be seamlessly injected into different views (carousel vs. grid) without duplicating code.
+1.  **Centralized state management at root level (app/page.tsx)**
+2.  **Synchronized with localStorage for persistence**
+3.  **Clean separation**:Presentation Layer (dumb components) vs Abstraction Layer (smart page logic)
+4.  **User/Admin modes as two presentations of the same underlying state**
 
-This architecture ensures that the "User" and "Admin" modes are merely two different presentations of the same underlying state, making the system both powerful and maintainable.
+This architecture ensures the system is both powerful and maintainable, with admin functionality seamlessly integrated into different view modes
 
-## Deep Dive: Critical Challenges & Solutions
+## Technical Challenges & Solutions / 问题与解决方案
 This project's value lies not just in the final UI, but in navigating and solving complex frontend architectural challenges.
 
 ## Challenge 1: State Management & Data Persistence Conflict
@@ -111,31 +113,30 @@ This project's value lies not just in the final UI, but in navigating and solvin
     *   Smooth CSS transitions for sliding.
     *   **Most importantly, the admin toggle switches were embedded directly into the carousel view**, maintaining full functionality regardless of the UI presentation. This shows that user experience and admin functionality are not mutually exclusive.
 
-##  Fixtures to Test Immediately / 快速测试数据
+##  Quick Validation / 快速验证
 
-通过以下测试用例，可快速验证首页开关逻辑
+- Test data is pre-configured in [`/lib/data.ts`](./lib/data.ts) ：
+- 测试数据已在 /lib/data.ts 中预设：
 
-### 产品数据预览
-在 [`/lib/data.ts`](./lib/data.ts) 中，我预设了如下产品，您可以通过在首页观察 **“Featured Products”** 区域进行验证：
-- **`showOnHomepage: true`** 的产品会出现在首页。
-    - 例如：`"CRISPR-Cas9 Kit"` (应显示)
-- **`showOnHomepage: false`** 的产品不会出现在首页。
-    - 例如：`"Gene Sequencing Kit"` (应隐藏)
+### Products / 产品数据
+
+- **Visible on homepage (should appear):**
+    - `"CRISPR-Cas9 Kit"` (显示)
+- **隐藏的产品 (should be hidden):** 
+    - `"Gene Sequencing Kit"` (隐藏)
 - **`showOnHomepageReagent: false`** 所有产品的此字段均已预设为 `false`，为未来“Reagent”栏目预留。
 
-### 服务数据预览
+### Services / 服务数据
 在同一个文件中，服务数据也遵循同样的规则：
 - **`showOnHomepage: true`** 的服务会出现在首页 **“Services”** 区域。
-    - 例如：`"Polymerase Enzyme"` (应显示)
+    - `"Polymerase Enzyme"` (显示)
 - **`showOnHomepage: false`** 的服务不会在首页显示。
-    - 例如：`"RNA Extraction Kit"` (应隐藏)
+    - `"RNA Extraction Kit"` (隐藏)
 
-### 如何验证
-1.  本地运行项目（参见 [Getting Started Locally](#-getting-started-locally)）。
-2.  刷新首页，观察 **Featured Products** 和 **Services** 栏目。
-3.  对照上方列表，即可快速确认“首页显示开关”功能是否按预期工作。
-
-通过此设置，您可以直接通过UI交互，验证代码执行逻辑的正确性。
+### To verify / 验证方法
+1.  Run the project locally（ [Getting Started Locally](#-getting-started-locally)）。
+2.  Refresh homepage and check Featured Products & Services sections
+3.  Match with the list above
 
 
 
