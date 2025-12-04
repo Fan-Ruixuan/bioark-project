@@ -24,7 +24,7 @@
 
 **Key Feature to Test Immediately / 核心功能体验:**
 1. **User Mode / 用户模式**: 
-    Browse products as a normal visitor.
+    - Browse products as a normal visitor.
 2. **Admin Mode / 管理员模式**: 
     - Click the **"Switch to Admin"** button on the top-right. 
     - toggle switches appear on product and service cards.
@@ -55,11 +55,11 @@ A dedicated **"Reagents & Chemicals"** area is displayed in a disabled, grayed-o
 1.  **Local Development / 本地运行** 
     - 按照上方的 [Getting Started Locally](#-getting-started-locally) 步骤，在本地开发环境中正常启动项目。
 
-2.  **Complete feature walkthrough & code explanation: Demo Video / 观看功能演示视频**
-    **通过网盘分享的文件：网页优化演示.mp4**
-    **链接: https://pan.baidu.com/s/13EghgZBDfW2odJftVerLhA?pwd=5idp 提取码: 5idp（无需提取码直接进入即可）**
+2.  **Feature Demo Video / 观看功能演示视频**
+    - 通过网盘分享的文件：网页优化演示.mp4
+    - **链接: https://pan.baidu.com/s/13EghgZBDfW2odJftVerLhA?pwd=5idp 提取码: 5idp（无需提取码直接进入即可）**
 
-*麻烦您啦~建议通过本地运行或观看视频了解项目*
+   *麻烦您啦~建议通过本地运行或观看视频了解项目*
 
 
 
@@ -76,7 +76,7 @@ A dedicated **"Reagents & Chemicals"** area is displayed in a disabled, grayed-o
 
 1.  **Centralized state management at root level (app/page.tsx)**
 2.  **Synchronized with localStorage for persistence**
-3.  **Clean separation**:Presentation Layer (dumb components) vs Abstraction Layer (smart page logic)
+3.  **Clean separation** : Presentation Layer (dumb components) vs Abstraction Layer (smart page logic)
 4.  **User/Admin modes as two presentations of the same underlying state**
 
 This architecture ensures the system is both powerful and maintainable, with admin functionality seamlessly integrated into different view modes
@@ -122,7 +122,7 @@ This project's value lies not just in the final UI, but in navigating and solvin
 
 - **Visible on homepage (should appear):**
     - `"CRISPR-Cas9 Kit"` (显示)
-- **隐藏的产品 (should be hidden):** 
+- **Hidden Products (should be hidden):** 
     - `"Gene Sequencing Kit"` (隐藏)
 - **`showOnHomepageReagent: false`** 所有产品的此字段均已预设为 `false`，为未来“Reagent”栏目预留。
 
