@@ -131,7 +131,7 @@ This project's value lies not just in the final UI, but in navigating and solvin
     - 例如：`"RNA Extraction Kit"` (应隐藏)
 
 ### 如何验证
-1.  在本地成功运行项目（参见 [Getting Started Locally](#-getting-started-locally)）。
+1.  本地运行项目（参见 [Getting Started Locally](#-getting-started-locally)）。
 2.  刷新首页，观察 **Featured Products** 和 **Services** 栏目。
 3.  对照上方列表，即可快速确认“首页显示开关”功能是否按预期工作。
 
