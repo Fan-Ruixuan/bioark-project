@@ -249,10 +249,10 @@ export default function HomePage() {
         </p>
       </div>
 
-      {/* 要求1 & 2: Featured Innovations 优化显示 - 智能轮播器 */}
+      {/* 要求1 & 2: Featured Products 优化显示 - 智能轮播器 */}
 <section className="mb-16">
   <div className="text-center mb-10">
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Innovations</h2>
+    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Products</h2>
     <p className="text-gray-600 text-lg max-w-3xl mx-auto">
       Explore our core products.{viewMode === 'admin' ? 'Directly manage the display status of products on the card.' : '	Navigate with arrows, toggle details.'}
     </p>
