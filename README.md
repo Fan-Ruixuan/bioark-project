@@ -7,7 +7,7 @@
 
     The core achievement is the implementation of a dual-mode "User/Admin" interface, transforming a simple display page into a lightweight Content Management System (CMS).
     
-     This allows non-technical administrators to control the website's content directly from the frontend, perfectly aligning with real-world business needs.
+    This allows non-technical administrators to control the website's content directly from the frontend, perfectly aligning with real-world business needs.
 
 ## Getting Started Locally
 1.  **Clone and Install**
@@ -21,6 +21,12 @@
     npm run dev
     ```
 3.  Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+**Key Feature to Test Immediately:**
+1. **User Mode**: 
+    Browse products as a normal visitor.
+2. **Admin Mode**: 
+    Click the **"Switch to Admin"** button on the top-right. Instantly, toggle switches appear on product and service cards, allowing you to control their visibility on the homepage and in specific sections in real-time.
 
 ## All Requirements Met & Exceeded
 
@@ -43,22 +49,16 @@ A dedicated **"Reagents & Chemicals"** area is displayed in a disabled, grayed-o
 > **重要访问说明**
 > 本项目已通过 Vercel 平台自动部署。由于该平台的国际服务节点配置，**从中国内地网络直接访问生成的预览网址，可能会遇到加载缓慢或连接超时的情况**。这并非应用本身的功能问题，而是由跨地域网络延迟所致。
 
-**为确保您能顺畅地审阅项目功能，我们强烈推荐以下两种方式：**
+**为确保您能顺畅地审阅项目功能，我准备了以下两种方式：**
 
-1.  **本地运行** (推荐)
+1.  **本地运行** 
     - 按照上方的 [Getting Started Locally](#-getting-started-locally) 步骤，在本地开发环境中正常启动项目。
 
 2.  **观看功能演示视频**
     - 我已录制了完整的功能演示与代码讲解视频，您可以通过此链接直接观看：
     **[请在此处插入你的视频链接，例如：Loom 或 B站视频链接]**
 
-*感谢您的理解与耐心！建议通过本地运行或观看视频来获得最佳审阅体验。*
-
-**Key Feature to Test Immediately:**
-1. **User Mode**: 
-    Browse products as a normal visitor.
-2. **Admin Mode**: 
-    Click the **"Switch to Admin"** button on the top-right. Instantly, toggle switches appear on product and service cards, allowing you to control their visibility on the homepage and in specific sections in real-time.
+*感谢您的理解与耐心！建议通过本地运行或观看视频完成审阅*
 
 
 
@@ -112,10 +112,10 @@ This project's value lies not just in the final UI, but in navigating and solvin
 
 ##  Fixtures to Test Immediately / 快速测试数据
 
-为了方便您快速验证本次任务的核心功能（“首页显示”开关逻辑），我们预先在数据层设置了以下测试用例：
+通过以下测试用例，可快速验证首页开关逻辑
 
 ### 产品数据预览
-在 [`/lib/data.ts`](./lib/data.ts) 中，我们预设了如下产品，您可以通过在首页观察 **“Featured Products”** 区域来验证：
+在 [`/lib/data.ts`](./lib/data.ts) 中，我预设了如下产品，您可以通过在首页观察 **“Featured Products”** 区域进行验证：
 - **`showOnHomepage: true`** 的产品会出现在首页。
     - 例如：`"CRISPR-Cas9 Kit"` (应显示)
 - **`showOnHomepage: false`** 的产品不会出现在首页。
@@ -134,7 +134,7 @@ This project's value lies not just in the final UI, but in navigating and solvin
 2.  刷新首页，观察 **Featured Products** 和 **Services** 栏目。
 3.  对照上方列表，即可快速确认“首页显示开关”功能是否按预期工作。
 
-通过此设置，您可以无需查阅任何代码，直接通过UI交互验证业务逻辑的正确性。
+通过此设置，您可以直接通过UI交互，验证代码执行逻辑的正确性。
 
 
 
