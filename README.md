@@ -56,7 +56,8 @@ A dedicated **"Reagents & Chemicals"** area is displayed in a disabled, grayed-o
 
 2.  **观看功能演示视频**
     - 我已录制了完整的功能演示与代码讲解视频，您可以通过此链接直接观看：
-    **[请在此处插入你的视频链接，例如：Loom 或 B站视频链接]**
+    **通过网盘分享的文件：网页优化演示.mp4**
+    **链接: https://pan.baidu.com/s/13EghgZBDfW2odJftVerLhA?pwd=5idp 提取码: 5idp（无需提取码直接进入即可）**
 
 *感谢您的理解与耐心！建议通过本地运行或观看视频完成审阅*
 
