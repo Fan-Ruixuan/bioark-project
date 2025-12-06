@@ -1,7 +1,7 @@
 // app/page.tsx - 主页面组件，包含所有五个要求的实现
 'use client';
 
-import { initialProducts } from '@/lib/data';     
+import { initialProducts , initialServices } from '@/lib/data';     
 import { Product } from '@/lib/types';
 import { useState, useEffect } from 'react';
 import ProductCarousel from '@/components/ProductCarousel';
@@ -12,32 +12,7 @@ export default function HomePage() {
 
   const [products, setProducts] = useState<Product[]>(initialProducts);
 
-  const [services, setServices] = useState([
-    {
-      id: 's1',
-      name: 'Gene Synthesis',
-      description: 'Custom gene synthesis and codon optimization services',
-      showOnHomepage: true,
-    },
-    {
-      id: 's2',
-      name: 'CRISPR Design',
-      description: 'Professional gRNA design and off-target analysis',
-      showOnHomepage: true,
-    },
-    {
-      id: 's3',
-      name: 'Protein Expression',
-      description: 'Recombinant protein expression and purification',
-      showOnHomepage: false,
-    },
-    {
-      id: 's4',
-      name: 'Cell Line Development',
-      description: 'Stable cell line development and validation',
-      showOnHomepage: false,
-    },
-  ]);
+  const [services, setServices] = useState(initialServices);
 
   // 加载保存的数据
   // useEffect(() => {
