@@ -1,6 +1,6 @@
 module.exports = { reactStrictMode: true } 
 const nextConfig = {
-    expeirmrntal: {
+    experimental: {
         turbo:{
             root:__dirname,
         },
