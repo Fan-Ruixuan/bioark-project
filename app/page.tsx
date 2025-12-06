@@ -1,6 +1,7 @@
 // app/page.tsx - 主页面组件，包含所有五个要求的实现
 'use client';
 
+import { initialProducts } from '@/lib/data';     
 import { Product } from '@/lib/types';
 import { useState, useEffect } from 'react';
 import ProductCarousel from '@/components/ProductCarousel';
@@ -9,97 +10,7 @@ import ProductCarousel from '@/components/ProductCarousel';
 export default function HomePage() {
   const [viewMode, setViewMode] = useState('user');
 
-  const [products, setProducts] = useState<Product[]>([
-    {
-      id: '1',
-      name: 'CRISPR-Cas9 Kit',
-      description: 'Complete genome editing toolkit for precise DNA modifications',
-      price: '$299',
-      imageUrl: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop',
-      showOnHomepage: true,
-      showInGeneEditing: true,
-      isReagent: false,
-      category: 'gene-editing'
-    },
-    {
-      id: '2',
-      name: 'Polymerase Enzyme',
-      description: 'High-fidelity DNA polymerase for PCR applications',
-      price: '$189',
-      imageUrl: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&h=300&fit=crop',
-      showOnHomepage: false,
-      showInGeneEditing: false,
-      isReagent: true,
-      category: 'featured'
-    },
-    {
-      id: '3',
-      name: 'Gene Sequencing Kit',
-      description: 'Next-generation sequencing preparation kit',
-      price: '$450',
-      imageUrl: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=300&fit=crop',
-      showOnHomepage: true,
-      showInGeneEditing: false,  // 改为true以显示蓝色按钮
-      isReagent: false,
-      category: 'featured'
-    },
-    {
-      id: '4',
-      name: 'RNA Extraction Kit',
-      description: 'Ultra-pure RNA isolation for genetic material analysis from various samples',
-      price: '$235',
-      imageUrl: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300',
-      showOnHomepage: true,
-      showInGeneEditing: false,
-      isReagent: false,
-      category: 'featured'
-    },
-    {
-      id: '5',
-      name: 'TALEN Assembly Kit',
-      description: 'Transcription activator-like effector nucleases',
-      price: '$520',
-      imageUrl: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&h=300&fit=crop',
-      showOnHomepage: false,
-      showInGeneEditing: true,
-      isReagent: false,
-      category: 'gene-editing'
-    },
-    {
-      id: '6',
-      name: 'ZFN Design Tool',
-      description: 'Zinc finger nuclease design and validation',
-      price: '$380',
-      imageUrl: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80',
-      showOnHomepage: false,
-      showInGeneEditing: true,
-      isReagent: false,
-      category: 'gene-editing'
-    },
-    {
-      id: '7',
-      name: 'Protein Purification Kit',
-      description: 'Affinity purification for recombinant proteins',
-      price: '$310',
-      imageUrl: 'https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?w=400&h=300&fit=crop',
-      showOnHomepage: true,
-      showInGeneEditing: false,
-      isReagent: false,
-      category: 'featured'
-
-    },
-    {
-      id: '8',
-      name: 'Cell Culture Media',
-      description: 'Complete media for mammalian cell culture',
-      price: '$89',
-      imageUrl: 'https://images.unsplash.com/photo-1585435557343-3b092031d5ad?w=400&h=300&fit=crop',
-      showOnHomepage: false,
-      showInGeneEditing: false,
-      isReagent: true,
-      category: 'featured'
-    },
-  ]);
+  const [products, setProducts] = useState<Product[]>(initialProducts);
 
   const [services, setServices] = useState([
     {
