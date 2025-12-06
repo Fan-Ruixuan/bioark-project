@@ -19,7 +19,7 @@ export default function HomePage() {
       showOnHomepage: true,
       showInGeneEditing: true,
       isReagent: false,
-      category: 'gene-editing'  
+      category: 'gene-editing'
     },
     {
       id: '2',
@@ -30,7 +30,7 @@ export default function HomePage() {
       showOnHomepage: false,
       showInGeneEditing: false,
       isReagent: true,
-      category: 'featured' 
+      category: 'featured'
     },
     {
       id: '3',
@@ -41,7 +41,7 @@ export default function HomePage() {
       showOnHomepage: true,
       showInGeneEditing: false,  // 改为true以显示蓝色按钮
       isReagent: false,
-      category: 'featured' 
+      category: 'featured'
     },
     {
       id: '4',
@@ -52,7 +52,7 @@ export default function HomePage() {
       showOnHomepage: true,
       showInGeneEditing: false,
       isReagent: false,
-      category: 'featured' 
+      category: 'featured'
     },
     {
       id: '5',
@@ -63,7 +63,7 @@ export default function HomePage() {
       showOnHomepage: false,
       showInGeneEditing: true,
       isReagent: false,
-       category: 'gene-editing' 
+      category: 'gene-editing'
     },
     {
       id: '6',
@@ -74,7 +74,7 @@ export default function HomePage() {
       showOnHomepage: false,
       showInGeneEditing: true,
       isReagent: false,
-       category: 'gene-editing' 
+      category: 'gene-editing'
     },
     {
       id: '7',
@@ -132,7 +132,7 @@ export default function HomePage() {
   // useEffect(() => {
   //   const savedProducts = localStorage.getItem('bioark-products');
   //   const savedServices = localStorage.getItem('bioark-services');
-    
+
   //   if (savedProducts) setProducts(JSON.parse(savedProducts));
   //   if (savedServices) setServices(JSON.parse(savedServices));
   // }, []);
@@ -145,8 +145,8 @@ export default function HomePage() {
 
   // 修复的切换函数 - 现在能实际改变状态
   const toggleProductHomepage = (productId: string) => {
-    const updatedProducts = products.map(product => 
-      product.id === productId 
+    const updatedProducts = products.map(product =>
+      product.id === productId
         ? { ...product, showOnHomepage: !product.showOnHomepage }
         : product
     );
@@ -155,8 +155,8 @@ export default function HomePage() {
   };
 
   const toggleProductGeneEditing = (productId: string) => {
-    const updatedProducts = products.map(product => 
-      product.id === productId 
+    const updatedProducts = products.map(product =>
+      product.id === productId
         ? { ...product, showInGeneEditing: !product.showInGeneEditing }
         : product
     );
@@ -165,8 +165,8 @@ export default function HomePage() {
   };
 
   const toggleServiceHomepage = (serviceId: string) => {
-    const updatedServices = services.map(service => 
-      service.id === serviceId 
+    const updatedServices = services.map(service =>
+      service.id === serviceId
         ? { ...service, showOnHomepage: !service.showOnHomepage }
         : service
     );
@@ -197,46 +197,45 @@ export default function HomePage() {
           </span>
           <button
             onClick={() => setViewMode(viewMode === 'user' ? 'admin' : 'user')}
-            className={`px-5 py-2.5 rounded-lg font-medium transition-all ${
-              viewMode === 'admin' 
-                ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg' 
-                : 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg hover:from-blue-600 hover:to-blue-700'
-            }`}
+            className={`px-5 py-2.5 rounded-lg font-medium transition-all ${viewMode === 'admin'
+              ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg'
+              : 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg hover:from-blue-600 hover:to-blue-700'
+              }`}
           >
             {viewMode === 'admin' ? '👨‍💼 Admin Mode' : '👤 Switch to Admin'}
           </button>
-         
-{viewMode === 'admin' && (
-  <button
-    onClick={() => {
-      // 1. 重置所有产品的显示状态
-      const resetProducts = products.map(p => ({
-        ...p,
-        showOnHomepage: !p.isReagent, // 非试剂产品默认显示
-        showInGeneEditing: p.category === 'gene-editing' // 基因编辑类产品保持原分类
-      }));
-      setProducts(resetProducts);
-      
-      // 2. 同时重置所有服务为显示状态
-      const resetServices = services.map(s => ({
-        ...s,
-        showOnHomepage: true
-      }));
-      setServices(resetServices);
-      
-      // 3. 保存到本地存储
-      localStorage.setItem('bioark-products', JSON.stringify(resetProducts));
-      localStorage.setItem('bioark-services', JSON.stringify(resetServices));
-      
-      // 4. 给用户一个提示
-      alert('是否要将所有产品和服务重置为默认显示状态？');
-    }}
-    className="ml-3 px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg font-medium hover:from-amber-600 hover:to-orange-600 shadow-lg transition-all text-sm"
-    title="将所有产品恢复显示，并将服务设为可见"
-  >
-    🔄 重置显示
-  </button>
-)}
+
+          {viewMode === 'admin' && (
+            <button
+              onClick={() => {
+                // 1. 重置所有产品的显示状态
+                const resetProducts = products.map(p => ({
+                  ...p,
+                  showOnHomepage: !p.isReagent, // 非试剂产品默认显示
+                  showInGeneEditing: p.category === 'gene-editing' // 基因编辑类产品保持原分类
+                }));
+                setProducts(resetProducts);
+
+                // 2. 同时重置所有服务为显示状态
+                const resetServices = services.map(s => ({
+                  ...s,
+                  showOnHomepage: true
+                }));
+                setServices(resetServices);
+
+                // 3. 保存到本地存储
+                localStorage.setItem('bioark-products', JSON.stringify(resetProducts));
+                localStorage.setItem('bioark-services', JSON.stringify(resetServices));
+
+                // 4. 给用户一个提示
+                alert('是否要将所有产品和服务重置为默认显示状态？');
+              }}
+              className="ml-3 px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg font-medium hover:from-amber-600 hover:to-orange-600 shadow-lg transition-all text-sm"
+              title="将所有产品恢复显示，并将服务设为可见"
+            >
+              🔄 重置显示
+            </button>
+          )}
         </div>
       </div>
 
@@ -251,24 +250,24 @@ export default function HomePage() {
       </div>
 
       {/* 要求1 & 2: Featured Products 优化显示 - 智能轮播器 */}
-<section className="mb-16">
-  <div className="text-center mb-10">
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Products</h2>
-    <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-      Explore our core products.{viewMode === 'admin' ? 'Directly manage the display status of products on the card.' : '	Navigate with arrows, toggle details.'}
-    </p>
-  </div>
-  
-  {/* 轮播器组件 */}
-  <ProductCarousel
-    products={products} // 传递所有产品数据
-    onToggleHomepage={toggleProductHomepage} // 传递开关函数
-    onToggleGeneEditing={toggleProductGeneEditing}
-    viewMode={viewMode as 'user' | 'admin'} // 传递当前视图模式
-  />
-  
-  {/* 缩略图下方指示器 */}
-  {/* <div className="text-center mt-6 text-sm text-gray-500">
+      <section className="mb-16">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Products</h2>
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+            Explore our core products.{viewMode === 'admin' ? 'Directly manage the display status of products on the card.' : '	Navigate with arrows, toggle details.'}
+          </p>
+        </div>
+
+        {/* 轮播器组件 */}
+        <ProductCarousel
+          products={products} // 传递所有产品数据
+          onToggleHomepage={toggleProductHomepage} // 传递开关函数
+          onToggleGeneEditing={toggleProductGeneEditing}
+          viewMode={viewMode as 'user' | 'admin'} // 传递当前视图模式
+        />
+
+        {/* 缩略图下方指示器 */}
+        {/* <div className="text-center mt-6 text-sm text-gray-500">
     products {featuredProducts.findIndex(p => p.id === featuredProducts[currentIndex]?.id) + 1} / {featuredProducts.length}
     {viewMode === 'admin' && (
       <span className="ml-4 text-blue-600">
@@ -277,8 +276,8 @@ export default function HomePage() {
     )}
 
   </div> */}
-  
-</section>
+
+      </section>
 
       {/* 要求3: Gene Editing Products独立栏目 */}
       <section className="mb-16 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 md:p-8 rounded-2xl">
@@ -291,7 +290,7 @@ export default function HomePage() {
             {geneEditingProducts.length} products
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {geneEditingProducts.map(product => (
             <div key={product.id} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
@@ -304,22 +303,20 @@ export default function HomePage() {
                   <p className="text-gray-600 text-sm mt-1 line-clamp-2">{product.description}</p>
                 </div>
               </div>
-              
+
               <div className="flex justify-between items-center">
                 <span className="font-bold text-lg text-purple-600">{product.price}</span>
-                
+
                 {viewMode === 'admin' && (
                   <div className="flex items-center space-x-3">
                     <span className="text-sm text-gray-600">Show here:</span>
                     <button
                       onClick={() => toggleProductGeneEditing(product.id)}
-                      className={`relative w-12 h-6 rounded-full transition-all duration-300 ${
-                        product.showInGeneEditing ? 'bg-blue-500' : 'bg-gray-300'
-                      }`}
+                      className={`relative w-12 h-6 rounded-full transition-all duration-300 ${product.showInGeneEditing ? 'bg-blue-500' : 'bg-gray-300'
+                        }`}
                     >
-                      <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transform transition-transform duration-300 ${
-                        product.showInGeneEditing ? 'left-7' : 'left-1'
-                      }`} />
+                      <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transform transition-transform duration-300 ${product.showInGeneEditing ? 'left-7' : 'left-1'
+                        }`} />
                     </button>
                   </div>
                 )}
@@ -333,23 +330,22 @@ export default function HomePage() {
       <section className="mb-16">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
           <div>
-            <h2 className="text-3xl font-bold text-gray-800">Our Services</h2>
-            {viewMode === 'admin' && (
-            <p className="text-gray-600 mt-2">Toggle services to show/hide on homepage</p>
-            )}
+           <h2 className="text-3xl font-bold text-gray-800">Our Services</h2>
+           <p className="text-gray-600 mt-2">Toggle services to show/hide on homepage</p>
           </div>
-          <div className="text-sm text-gray-500">
-            {homepageServices.length} services visible to users
-          </div>
+          {viewMode === 'admin' && (
+            <div className="text-sm text-gray-500">
+              {homepageServices.length} services visible to users
+            </div>
+          )}
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {servicesToRender.map(service => (
-            <div key={service.id} className={`bg-white rounded-xl shadow-lg p-6 transition-all duration-300 ${
-              service.showOnHomepage 
-                ? 'border-l-4 border-green-500' 
-                : 'opacity-80 border-l-4 border-gray-300'
-            }`}>
+            <div key={service.id} className={`bg-white rounded-xl shadow-lg p-6 transition-all duration-300 ${service.showOnHomepage
+              ? 'border-l-4 border-green-500'
+              : 'opacity-80 border-l-4 border-gray-300'
+              }`}>
               <div className="flex justify-between items-start">
                 <div className="flex-1">
                   <div className="flex items-center mb-3">
@@ -360,24 +356,22 @@ export default function HomePage() {
                   </div>
                   <p className="text-gray-600">{service.description}</p>
                 </div>
-                
+
                 {viewMode === 'admin' && (
                   <div className="flex flex-col items-end ml-4">
                     <span className="text-sm text-gray-500 mb-2">Visible</span>
                     <button
                       onClick={() => toggleServiceHomepage(service.id)}
-                      className={`relative w-12 h-6 rounded-full transition-all duration-300 ${
-                        service.showOnHomepage ? 'bg-green-500' : 'bg-gray-300'
-                      }`}
+                      className={`relative w-12 h-6 rounded-full transition-all duration-300 ${service.showOnHomepage ? 'bg-green-500' : 'bg-gray-300'
+                        }`}
                     >
-                      <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transform transition-transform duration-300 ${
-                        service.showOnHomepage ? 'left-7' : 'left-1'
-                      }`} />
+                      <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transform transition-transform duration-300 ${service.showOnHomepage ? 'left-7' : 'left-1'
+                        }`} />
                     </button>
                   </div>
                 )}
               </div>
-              
+
               {viewMode === 'admin' && service.showOnHomepage && (
                 <div className="mt-4 flex items-center">
                   <div className="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
@@ -389,53 +383,53 @@ export default function HomePage() {
         </div>
       </section>
       {/* 隐藏的产品管理 - 只在Admin模式显示 */}
-{viewMode === 'admin' && (
-  <section className="mb-12 bg-yellow-50 p-6 rounded-2xl border border-yellow-200">
-    <div className="flex items-center mb-6">
-      <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center mr-3">
-        <div className="w-4 h-4 bg-yellow-500 rounded"></div>
-      </div>
-      <div>
-        <h2 className="text-2xl font-bold text-gray-800">Hidden Products Management</h2>
-        <p className="text-gray-600 text-sm">Products not currently shown on homepage</p>
-      </div>
-    </div>
-    
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {products
-        .filter(p => !p.showOnHomepage && !p.isReagent)
-        .map(product => (
-          <div key={product.id} className="bg-white p-4 rounded-lg border border-gray-200">
-            <div className="flex justify-between items-center">
-              <div>
-                <h3 className="font-medium text-gray-800">{product.name}</h3>
-                <p className="text-gray-500 text-sm truncate">{product.price}</p>
+      {viewMode === 'admin' && (
+        <section className="mb-12 bg-yellow-50 p-6 rounded-2xl border border-yellow-200">
+          <div className="flex items-center mb-6">
+            <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center mr-3">
+              <div className="w-4 h-4 bg-yellow-500 rounded"></div>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-gray-800">Hidden Products Management</h2>
+              <p className="text-gray-600 text-sm">Products not currently shown on homepage</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {products
+              .filter(p => !p.showOnHomepage && !p.isReagent)
+              .map(product => (
+                <div key={product.id} className="bg-white p-4 rounded-lg border border-gray-200">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <h3 className="font-medium text-gray-800">{product.name}</h3>
+                      <p className="text-gray-500 text-sm truncate">{product.price}</p>
+                    </div>
+                    <button
+                      onClick={() => toggleProductHomepage(product.id)}
+                      className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors text-sm"
+                    >
+                      Show on Homepage
+                    </button>
+                  </div>
+                  <div className="mt-3 text-xs text-gray-400">
+                    Currently in: {product.showInGeneEditing ? 'Gene Editing' : 'Not displayed'}
+                  </div>
+                </div>
+              ))
+            }
+
+            {products.filter(p => !p.showOnHomepage && !p.isReagent).length === 0 && (
+              <div className="col-span-full text-center py-8">
+                <div className="w-12 h-12 bg-green-100 rounded-full inline-flex items-center justify-center mb-3">
+                  <div className="w-6 h-6 bg-green-500 rounded"></div>
+                </div>
+                <p className="text-gray-600">All non-reagent products are currently shown on homepage</p>
               </div>
-              <button
-                onClick={() => toggleProductHomepage(product.id)}
-                className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors text-sm"
-              >
-                Show on Homepage
-              </button>
-            </div>
-            <div className="mt-3 text-xs text-gray-400">
-              Currently in: {product.showInGeneEditing ? 'Gene Editing' : 'Not displayed'}
-            </div>
+            )}
           </div>
-        ))
-      }
-      
-      {products.filter(p => !p.showOnHomepage && !p.isReagent).length === 0 && (
-        <div className="col-span-full text-center py-8">
-          <div className="w-12 h-12 bg-green-100 rounded-full inline-flex items-center justify-center mb-3">
-            <div className="w-6 h-6 bg-green-500 rounded"></div>
-          </div>
-          <p className="text-gray-600">All non-reagent products are currently shown on homepage</p>
-        </div>
+        </section>
       )}
-    </div>
-  </section>
-)}
 
       {/* 要求5: Reagent专有显示栏 - 置灰 */}
       <section className="mb-16">
@@ -446,7 +440,7 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold text-gray-400">Reagents & Chemicals</h2>
           <p className="text-gray-500 mt-2">Specialized section - Coming Soon</p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto opacity-50 pointer-events-none">
           {reagentProducts.map(product => (
             <div key={product.id} className="bg-gray-50 p-6 rounded-xl border-2 border-dashed border-gray-300">
@@ -474,7 +468,7 @@ export default function HomePage() {
             <h3 className="font-bold text-gray-800">Featured Innovations</h3>
             <p className="text-gray-600 text-sm mt-1">Optimized grid layout</p>
           </div>
-          
+
           <div className="bg-white p-4 rounded-lg shadow text-center">
             <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
               <span className="text-blue-600 font-bold">2</span>
@@ -482,7 +476,7 @@ export default function HomePage() {
             <h3 className="font-bold text-gray-800">Scalable Display</h3>
             <p className="text-gray-600 text-sm mt-1">Handles many products</p>
           </div>
-          
+
           <div className="bg-white p-4 rounded-lg shadow text-center">
             <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
               <span className="text-purple-600 font-bold">3</span>
@@ -490,7 +484,7 @@ export default function HomePage() {
             <h3 className="font-bold text-gray-800">Gene Editing</h3>
             <p className="text-gray-600 text-sm mt-1">Dedicated section</p>
           </div>
-          
+
           <div className="bg-white p-4 rounded-lg shadow text-center">
             <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
               <span className="text-green-600 font-bold">4</span>
@@ -498,7 +492,7 @@ export default function HomePage() {
             <h3 className="font-bold text-gray-800">Services Control</h3>
             <p className="text-gray-600 text-sm mt-1">Toggle visibility</p>
           </div>
-          
+
           <div className="bg-white p-4 rounded-lg shadow text-center">
             <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-2">
               <span className="text-gray-600 font-bold">5</span>
