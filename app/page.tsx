@@ -260,7 +260,7 @@ export default function HomePage() {
 
         {/* 轮播器组件 */}
         <ProductCarousel
-          products={products} // 传递所有产品数据
+          products={featuredProducts} // 传递可见在首页的产品数据
           onToggleHomepage={toggleProductHomepage} // 传递开关函数
           onToggleGeneEditing={toggleProductGeneEditing}
           viewMode={viewMode as 'user' | 'admin'} // 传递当前视图模式
