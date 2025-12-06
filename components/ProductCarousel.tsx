@@ -27,6 +27,9 @@ export default function ProductCarousel({
   onToggleGeneEditing,
   viewMode = 'user'
 }: ProductCarouselProps) {
+  if(!products ||ProductCarousel.length === 0){
+  return<div className='text-center py-10'>当前栏目暂无产品展示</div>
+}
   // 状态管理：当前索引、详情展开状态
   const [currentIndex, setCurrentIndex] = useState(0);
   const [expandedDetailId, setExpandedDetailId] = useState<string | null>(null);
@@ -34,7 +37,7 @@ export default function ProductCarousel({
 
   // 只显示被标记为Show on Homepage的产品
   const featuredProducts = products.filter(p => p.showOnHomepage && !p.isReagent);
-  const currentProduct = featuredProducts[currentIndex];
+  const currentProduct = featuredProducts.length>0?featuredProducts[currentIndex]:null;
 
   // 轮播导航函数
   const goToPrevious = () => {
@@ -91,13 +94,13 @@ export default function ProductCarousel({
             {/* 产品图片 */}
             <div className="relative h-64 md:h-80 lg:h-96 rounded-xl overflow-hidden shadow-lg">
               <img
-                src={currentProduct.imageUrl}
-                alt={currentProduct.name}
+                src={currentProduct?.imageUrl}
+                alt={currentProduct?.name}
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               />
               {/* 图片角标 */}
               <div className="absolute top-4 right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg font-bold">
-                {currentProduct.price}
+                {currentProduct?.price}
               </div>
             </div>
 
@@ -105,8 +108,8 @@ export default function ProductCarousel({
             <div className="flex flex-col flex-1">
              <div className="space-y-6">
               <div>
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900">{currentProduct.name}</h3>
-                <p className="text-gray-600 mt-4 text-lg">{currentProduct.description}</p>
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-900">{currentProduct?.name}</h3>
+                <p className="text-gray-600 mt-4 text-lg">{currentProduct?.description}</p>
               </div> 
             </div>
 
@@ -116,19 +119,19 @@ export default function ProductCarousel({
                   <div className="flex items-center justify-between">
                     <span className="font-medium text-gray-700">Show on Homepage</span>
                     <button
-                      onClick={() => onToggleHomepage?.(currentProduct.id)}
-                      className={`relative inline-flex h-6 w-12 items-center rounded-full transition-colors ${currentProduct.showOnHomepage ? 'bg-green-500' : 'bg-gray-300'}`}
+                      onClick={() => onToggleHomepage?.(currentProduct?.id!)}
+                      className={`relative inline-flex h-6 w-12 items-center rounded-full transition-colors ${currentProduct?.showOnHomepage ? 'bg-green-500' : 'bg-gray-300'}`}
                     >
-                      <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${currentProduct.showOnHomepage ? 'translate-x-7' : 'translate-x-1'}`} />
+                      <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${currentProduct?.showOnHomepage ? 'translate-x-7' : 'translate-x-1'}`} />
                     </button>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="font-medium text-gray-700">Show in Gene Editing</span>
                     <button
-                      onClick={() => onToggleGeneEditing?.(currentProduct.id)}
-                      className={`relative inline-flex h-6 w-12 items-center rounded-full transition-colors ${currentProduct.showInGeneEditing ? 'bg-blue-500' : 'bg-gray-300'}`}
+                      onClick={() => onToggleGeneEditing?.(currentProduct?.id!)}
+                      className={`relative inline-flex h-6 w-12 items-center rounded-full transition-colors ${currentProduct?.showInGeneEditing ? 'bg-blue-500' : 'bg-gray-300'}`}
                     >
-                      <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${currentProduct.showInGeneEditing ? 'translate-x-7' : 'translate-x-1'}`} />
+                      <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${currentProduct?.showInGeneEditing ? 'translate-x-7' : 'translate-x-1'}`} />
                     </button>
                   </div>
                 </div>
@@ -137,11 +140,11 @@ export default function ProductCarousel({
               {/* 用户操作按钮 */}
               <div className="mt-auto pt-4 flex flex-wrap gap-4">
                 <button
-                  onClick={() => toggleDetail(currentProduct.id)}
+                  onClick={() => toggleDetail(currentProduct?.id!)}
                   className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all font-medium"
                 >
                   <Eye size={20} />
-                  {expandedDetailId === currentProduct.id ? 'Collapse Details' : 'View Details'}
+                  {expandedDetailId === currentProduct?.id ? 'Collapse Details' : 'View Details'}
                 </button>
                 {/* 可以在这里添加“立即咨询”等按钮 */}
               </div>
@@ -171,7 +174,7 @@ export default function ProductCarousel({
       </div>
 
       {/* 详情展开面板 - 平滑动画 */}
-      {expandedDetailId === currentProduct.id && (
+      {expandedDetailId === currentProduct?.id && (
         <div className="mt-6 bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl shadow-inner p-6 md:p-8 border animate-fadeIn">
           <div className="flex justify-between items-start mb-6">
             <h4 className="text-2xl font-bold text-gray-900">Product Specifications</h4>
