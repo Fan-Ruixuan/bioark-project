@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight, Eye, X } from 'lucide-react';
 
 // 定义从父组件接收的属性类型
 interface ProductCarouselProps {
-  products: Array<{ // 这里使用你在page.tsx中定义的Product类型简化版
+  products: Array<{ // 这里使用page.tsx中定义的Product类型简化版
     id: string;
     name: string;
     description: string;
@@ -201,7 +201,7 @@ export default function ProductCarousel({
 </div>
             </div>
           </div>
-          {/* 这里可以添加更多自定义详情 */}
+          {/*（ 这里可以添加更多自定义详情，用于后续扩展 ）*/}
         </div>
       )}
     </div>

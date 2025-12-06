@@ -179,6 +179,7 @@ export default function HomePage() {
   const geneEditingProducts = products.filter(p => p.showInGeneEditing);
   const reagentProducts = products.filter(p => p.isReagent);
   const homepageServices = services.filter(s => s.showOnHomepage);
+  const servicesToRender = viewMode === 'admin' ? services : homepageServices;//根据当前模式判断需要渲染的服务数组
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 md:p-8">
@@ -227,7 +228,7 @@ export default function HomePage() {
       localStorage.setItem('bioark-products', JSON.stringify(resetProducts));
       localStorage.setItem('bioark-services', JSON.stringify(resetServices));
       
-      // 4. 可选：给用户一个提示
+      // 4. 给用户一个提示
       alert('是否要将所有产品和服务重置为默认显示状态？');
     }}
     className="ml-3 px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg font-medium hover:from-amber-600 hover:to-orange-600 shadow-lg transition-all text-sm"
@@ -333,7 +334,9 @@ export default function HomePage() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
           <div>
             <h2 className="text-3xl font-bold text-gray-800">Our Services</h2>
+            {viewMode === 'admin' && (
             <p className="text-gray-600 mt-2">Toggle services to show/hide on homepage</p>
+            )}
           </div>
           <div className="text-sm text-gray-500">
             {homepageServices.length} services visible to users
@@ -341,7 +344,7 @@ export default function HomePage() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map(service => (
+          {servicesToRender.map(service => (
             <div key={service.id} className={`bg-white rounded-xl shadow-lg p-6 transition-all duration-300 ${
               service.showOnHomepage 
                 ? 'border-l-4 border-green-500' 
@@ -375,7 +378,7 @@ export default function HomePage() {
                 )}
               </div>
               
-              {viewMode === 'user' && service.showOnHomepage && (
+              {viewMode === 'admin' && service.showOnHomepage && (
                 <div className="mt-4 flex items-center">
                   <div className="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
                   <span className="text-green-700 font-medium">Currently visible on homepage</span>
