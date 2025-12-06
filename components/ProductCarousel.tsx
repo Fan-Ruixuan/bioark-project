@@ -86,7 +86,8 @@ export default function ProductCarousel({
 
         {/* 轮播内容卡片 */}
         <div className="p-8 md:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center h-full">
+            
             {/* 产品图片 */}
             <div className="relative h-64 md:h-80 lg:h-96 rounded-xl overflow-hidden shadow-lg">
               <img
