@@ -1,8 +1,6 @@
 const nextConfig = {
-    experimental: {
-        turboPack:{
-            root:__dirname,
-        },
-    },
-}
+    reactStrictMode:true,
+    turbo:{
+    }
+};
 module.exports = nextConfig;
