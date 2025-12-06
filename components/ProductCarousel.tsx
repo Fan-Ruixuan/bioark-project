@@ -106,31 +106,12 @@ export default function ProductCarousel({
               <div>
                 <h3 className="text-3xl md:text-4xl font-bold text-gray-900">{currentProduct.name}</h3>
                 <p className="text-gray-600 mt-4 text-lg">{currentProduct.description}</p>
-              </div>
-              <button
-                      onClick={() => onToggleHomepage?.(currentProduct.id)}
-                      className={`relative inline-flex h-6 w-12 items-center rounded-full transition-colors ${currentProduct.showOnHomepage ? 'bg-green-500' : 'bg-gray-300'}`}
-                    >
-                      <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${currentProduct.showOnHomepage ? 'translate-x-7' : 'translate-x-1'}`} />
-                    </button>
-              <button
-                      onClick={() => onToggleGeneEditing?.(currentProduct.id)}
-                      className={`relative inline-flex h-6 w-12 items-center rounded-full transition-colors ${currentProduct.showInGeneEditing ? 'bg-blue-500' : 'bg-gray-300'}`}
-                    >
-                      <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${currentProduct.showInGeneEditing ? 'translate-x-7' : 'translate-x-1'}`} />
-                    </button>
-              <button
-                  onClick={() => toggleDetail(currentProduct.id)}
-                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all font-medium"
-                >
-                  <Eye size={20} />
-                  {expandedDetailId === currentProduct.id ? 'Collapse Details' : 'View Details'}
-                </button> 
+              </div> 
             </div>
 
               {/* 管理员控制面板 */}
               {isAdmin && (
-                <div className="space-y-4 p-6 bg-gray-50 rounded-xl border">
+                <div className="mt-4 space-y-4 p-6 bg-gray-50 rounded-xl border">
                   <div className="flex items-center justify-between">
                     <span className="font-medium text-gray-700">Show on Homepage</span>
                     <button
@@ -153,7 +134,7 @@ export default function ProductCarousel({
               )}
 
               {/* 用户操作按钮 */}
-              <div className="flex flex-wrap gap-4">
+              <div className="mt-auto pt-4 flex flex-wrap gap-4">
                 <button
                   onClick={() => toggleDetail(currentProduct.id)}
                   className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all font-medium"
