@@ -8,7 +8,7 @@ export const initialProducts = [
     price: '$299',
     category: 'featured',
     imageUrl: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop',
-    showOnHomepage: true,
+    showOnHomepage: false,
     showInGeneEditing: true,
     isReagent: false,
   },
