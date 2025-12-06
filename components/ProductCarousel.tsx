@@ -62,7 +62,7 @@ export default function ProductCarousel({
     return (
       <div className="text-center py-12 bg-gray-50 rounded-xl">
         <p className="text-gray-500">No featured products to display.。</p>
-        {isAdmin && <p className="text-sm text-gray-400 mt-1">请在管理模式下将产品设为“首页展示”</p>}
+        {isAdmin && <p className="text-sm text-gray-400 mt-1">当前栏目暂无产品展示</p>}
       </div>
     );
   }
